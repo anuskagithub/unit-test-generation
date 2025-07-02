@@ -1,0 +1,156 @@
+
+output/test_sample.c:2:1: error: unknown type name 'This'
+ This is a test file for the `add` function in C. The function takes two integers as input and returns their sum. Here's an example of how you might use this file:
+ ^~~~
+output/test_sample.c:2:9: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'a'
+ This is a test file for the `add` function in C. The function takes two integers as input and returns their sum. Here's an example of how you might use this file:
+         ^
+output/test_sample.c:2:9: error: unknown type name 'a'
+output/test_sample.c:2:29: error: stray '`' in program
+ This is a test file for the `add` function in C. The function takes two integers as input and returns their sum. Here's an example of how you might use this file:
+                             ^
+output/test_sample.c:2:33: error: stray '`' in program
+ This is a test file for the `add` function in C. The function takes two integers as input and returns their sum. Here's an example of how you might use this file:
+                                 ^
+output/test_sample.c:2:118: warning: missing terminating ' character
+ This is a test file for the `add` function in C. The function takes two integers as input and returns their sum. Here's an example of how you might use this file:
+                                                                                                                      ^
+output/test_sample.c:2:118: error: missing terminating ' character
+ This is a test file for the `add` function in C. The function takes two integers as input and returns their sum. Here's an example of how you might use this file:
+                                                                                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+output/test_sample.c:3:1: error: stray '`' in program
+ ```
+ ^
+output/test_sample.c:3:2: error: stray '`' in program
+ ```
+  ^
+output/test_sample.c:3:3: error: stray '`' in program
+ ```
+   ^
+In file included from output/test_sample.c:4:0:
+c:\mingw\include\stdio.h:295:71: error: unknown type name 'size_t'
+ _CRTIMP __cdecl __MINGW_NOTHROW  int    setvbuf (FILE *, char *, int, size_t);
+                                                                       ^~~~~~
+c:\mingw\include\stdio.h:345:54: error: unknown type name 'size_t'
+ extern int __mingw_stdio_redirect__(snprintf)(char*, size_t, const char*, ...);
+                                                      ^~~~~~
+c:\mingw\include\stdio.h:349:55: error: unknown type name 'size_t'
+ extern int __mingw_stdio_redirect__(vsnprintf)(char*, size_t, const char*, __VALIST);
+                                                       ^~~~~~
+c:\mingw\include\stdio.h:490:57: error: unknown type name 'size_t'
+ _CRTIMP __cdecl __MINGW_NOTHROW  int _snprintf (char *, size_t, const char *, ...);
+                                                         ^~~~~~
+c:\mingw\include\stdio.h:491:58: error: unknown type name 'size_t'
+ _CRTIMP __cdecl __MINGW_NOTHROW  int _vsnprintf (char *, size_t, const char *, __VALIST);
+                                                          ^~~~~~
+c:\mingw\include\stdio.h:502:23: error: unknown type name 'size_t'
+ int snprintf (char *, size_t, const char *, ...);
+                       ^~~~~~
+c:\mingw\include\stdio.h:505:24: error: unknown type name 'size_t'
+ int vsnprintf (char *, size_t, const char *, __VALIST);
+                        ^~~~~~
+c:\mingw\include\stdio.h:647:33: error: unknown type name 'size_t'
+ getdelim (char ** __restrict__, size_t * __restrict__, int, FILE * __restrict__);
+                                 ^~~~~~
+c:\mingw\include\stdio.h:650:32: error: unknown type name 'size_t'
+ getline (char ** __restrict__, size_t * __restrict__, FILE * __restrict__);
+                                ^~~~~~
+c:\mingw\include\stdio.h:734:34: error: unknown type name 'size_t'
+ _CRTIMP __cdecl __MINGW_NOTHROW  size_t fread (void *, size_t, size_t, FILE *);
+                                  ^~~~~~
+c:\mingw\include\stdio.h:734:56: error: unknown type name 'size_t'
+ _CRTIMP __cdecl __MINGW_NOTHROW  size_t fread (void *, size_t, size_t, FILE *);
+                                                        ^~~~~~
+c:\mingw\include\stdio.h:734:64: error: unknown type name 'size_t'
+ _CRTIMP __cdecl __MINGW_NOTHROW  size_t fread (void *, size_t, size_t, FILE *);
+                                                                ^~~~~~
+c:\mingw\include\stdio.h:735:34: error: unknown type name 'size_t'
+ _CRTIMP __cdecl __MINGW_NOTHROW  size_t fwrite (const void *, size_t, size_t, FILE *);
+                                  ^~~~~~
+c:\mingw\include\stdio.h:735:63: error: unknown type name 'size_t'
+ _CRTIMP __cdecl __MINGW_NOTHROW  size_t fwrite (const void *, size_t, size_t, FILE *);
+                                                               ^~~~~~
+c:\mingw\include\stdio.h:735:71: error: unknown type name 'size_t'
+ _CRTIMP __cdecl __MINGW_NOTHROW  size_t fwrite (const void *, size_t, size_t, FILE *);
+                                                                       ^~~~~~
+c:\mingw\include\stdio.h:962:64: error: unknown type name 'size_t'
+ _CRTIMP __cdecl __MINGW_NOTHROW  int    _snwprintf (wchar_t *, size_t, const wchar_t *, ...);
+                                                                ^~~~~~
+c:\mingw\include\stdio.h:964:65: error: unknown type name 'size_t'
+ _CRTIMP __cdecl __MINGW_NOTHROW  int    _vsnwprintf (wchar_t *, size_t, const wchar_t *, __VALIST);
+                                                                 ^~~~~~
+c:\mingw\include\stdio.h:1006:52: error: unknown type name 'size_t'
+ __cdecl __MINGW_NOTHROW  int snwprintf (wchar_t *, size_t, const wchar_t *, ...);
+                                                    ^~~~~~
+c:\mingw\include\stdio.h:1007:53: error: unknown type name 'size_t'
+ __cdecl __MINGW_NOTHROW  int vsnwprintf (wchar_t *, size_t, const wchar_t *, __VALIST);
+                                                     ^~~~~~
+output/test_sample.c: In function 'main':
+output/test_sample.c:8:18: warning: implicit declaration of function 'add' [-Wimplicit-function-declaration]
+     int result = add(3, 5);
+                  ^~~
+output/test_sample.c: At top level:
+output/test_sample.c:13:1: error: stray '`' in program
+ ```
+ ^
+output/test_sample.c:13:2: error: stray '`' in program
+ ```
+  ^
+output/test_sample.c:13:3: error: stray '`' in program
+ ```
+   ^
+output/test_sample.c:14:1: error: unknown type name 'This'
+ This test file includes the `<assert.h>` header, which provides the `assert` macro for testing conditional expressions. The `main` function calls the `add` function with arguments `3` and `5`, and then checks that the result is equal to `8`. If the condition is not met, the program will terminate with an error message.
+ ^~~~
+output/test_sample.c:14:11: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'file'
+ This test file includes the `<assert.h>` header, which provides the `assert` macro for testing conditional expressions. The `main` function calls the `add` function with arguments `3` and `5`, and then checks that the result is equal to `8`. If the condition is not met, the program will terminate with an error message.
+           ^~~~
+output/test_sample.c:14:11: error: unknown type name 'file'
+output/test_sample.c:14:29: error: stray '`' in program
+ This test file includes the `<assert.h>` header, which provides the `assert` macro for testing conditional expressions. The `main` function calls the `add` function with arguments `3` and `5`, and then checks that the result is equal to `8`. If the condition is not met, the program will terminate with an error message.
+                             ^
+output/test_sample.c:14:40: error: stray '`' in program
+ This test file includes the `<assert.h>` header, which provides the `assert` macro for testing conditional expressions. The `main` function calls the `add` function with arguments `3` and `5`, and then checks that the result is equal to `8`. If the condition is not met, the program will terminate with an error message.
+                                        ^
+output/test_sample.c:14:69: error: stray '`' in program
+ This test file includes the `<assert.h>` header, which provides the `assert` macro for testing conditional expressions. The `main` function calls the `add` function with arguments `3` and `5`, and then checks that the result is equal to `8`. If the condition is not met, the program will terminate with an error message.
+                                                                     ^
+output/test_sample.c:14:76: error: stray '`' in program
+ This test file includes the `<assert.h>` header, which provides the `assert` macro for testing conditional expressions. The `main` function calls the `add` function with arguments `3` and `5`, and then checks that the result is equal to `8`. If the condition is not met, the program will terminate with an error message.
+                                                                            ^
+output/test_sample.c:14:125: error: stray '`' in program
+ This test file includes the `<assert.h>` header, which provides the `assert` macro for testing conditional expressions. The `main` function calls the `add` function with arguments `3` and `5`, and then checks that the result is equal to `8`. If the condition is not met, the program will terminate with an error message.
+                                                                                                                             ^
+output/test_sample.c:14:130: error: stray '`' in program
+ This test file includes the `<assert.h>` header, which provides the `assert` macro for testing conditional expressions. The `main` function calls the `add` function with arguments `3` and `5`, and then checks that the result is equal to `8`. If the condition is not met, the program will terminate with an error message.
+                                                                                                                                  ^
+output/test_sample.c:14:151: error: stray '`' in program
+ This test file includes the `<assert.h>` header, which provides the `assert` macro for testing conditional expressions. The `main` function calls the `add` function with arguments `3` and `5`, and then checks that the result is equal to `8`. If the condition is not met, the program will terminate with an error message.
+                                                                                                                                                       ^
+output/test_sample.c:14:155: error: stray '`' in program
+ This test file includes the `<assert.h>` header, which provides the `assert` macro for testing conditional expressions. The `main` function calls the `add` function with arguments `3` and `5`, and then checks that the result is equal to `8`. If the condition is not met, the program will terminate with an error message.
+                                                                                                                                                           ^
+output/test_sample.c:14:181: error: stray '`' in program
+ This test file includes the `<assert.h>` header, which provides the `assert` macro for testing conditional expressions. The `main` function calls the `add` function with arguments `3` and `5`, and then checks that the result is equal to `8`. If the condition is not met, the program will terminate with an error message.
+                                                                                                                                                                                     ^
+output/test_sample.c:14:183: error: stray '`' in program
+ This test file includes the `<assert.h>` header, which provides the `assert` macro for testing conditional expressions. The `main` function calls the `add` function with arguments `3` and `5`, and then checks that the result is equal to `8`. If the condition is not met, the program will terminate with an error message.
+                                                                                                                                                                                       ^
+output/test_sample.c:14:189: error: stray '`' in program
+ This test file includes the `<assert.h>` header, which provides the `assert` macro for testing conditional expressions. The `main` function calls the `add` function with arguments `3` and `5`, and then checks that the result is equal to `8`. If the condition is not met, the program will terminate with an error message.
+                                                                                                                                                                                             ^
+output/test_sample.c:14:191: error: stray '`' in program
+ This test file includes the `<assert.h>` header, which provides the `assert` macro for testing conditional expressions. The `main` function calls the `add` function with arguments `3` and `5`, and then checks that the result is equal to `8`. If the condition is not met, the program will terminate with an error message.
+                                                                                                                                                                                               ^
+output/test_sample.c:14:238: error: stray '`' in program
+ This test file includes the `<assert.h>` header, which provides the `assert` macro for testing conditional expressions. The `main` function calls the `add` function with arguments `3` and `5`, and then checks that the result is equal to `8`. If the condition is not met, the program will terminate with an error message.
+                                                                                                                                                                                                                                              ^
+output/test_sample.c:14:240: error: stray '`' in program
+ This test file includes the `<assert.h>` header, which provides the `assert` macro for testing conditional expressions. The `main` function calls the `add` function with arguments `3` and `5`, and then checks that the result is equal to `8`. If the condition is not met, the program will terminate with an error message.
+                                                                                                                                                                                                                                                ^
+output/test_sample.c:16:138: warning: missing terminating ' character
+ Note that this test file does not include any code for checking the behavior of the function under different conditions or edge cases. It's a simple example of how you might use unit testing in C.
+                                                                                                                                          ^
+output/test_sample.c:16:138: error: missing terminating ' character
+ Note that this test file does not include any code for checking the behavior of the function under different conditions or edge cases. It's a simple example of how you might use unit testing in C.
+                                                                                                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

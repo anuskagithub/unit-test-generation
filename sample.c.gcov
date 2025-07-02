@@ -1,0 +1,11 @@
+        -:    0:Source:input/sample.c
+        -:    0:Graph:input/sample.gcno
+        -:    0:Data:input/sample.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:// input/sample.c
+        -:    2:#include "sample.h"
+        -:    3:
+        1:    4:int add(int a, int b) {
+        1:    5:    return a + b;
+        -:    6:}

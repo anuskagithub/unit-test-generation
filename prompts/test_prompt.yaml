@@ -1,0 +1,24 @@
+# instructions.yaml
+
+task: "Generate C/C++ unit tests"
+
+requirements:
+  - Use assert-style tests (e.g., assert.h or Google Test if C++)
+  - Include all necessary headers for the test to compile
+  - Avoid test duplication
+  - Ensure all functions are tested at least once
+  - Avoid invalid inputs (e.g., division by 0, NULL pointer dereference)
+  - Wrap all test cases inside a proper main() function
+  - Use readable variable names and comments
+
+formatting:
+  - Use consistent indentation (4 spaces)
+  - Avoid unnecessary whitespace
+  - Comment each test with what it’s testing
+
+output:
+  - Provide only the test code, no explanation
+  - Wrap all code in a single `main()` function if assert.h is used
+  - Return valid compilable code only
+
+language: "C"
