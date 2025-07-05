@@ -1,15 +1,17 @@
-# instructions.yaml
-
-task: "Generate C/C++ unit tests"
+task: "Generate C++ unit tests"
 
 requirements:
-  - Use assert-style tests (e.g., assert.h or Google Test if C++)
-  - Include all necessary headers for the test to compile
-  - Avoid test duplication
-  - Ensure all functions are tested at least once
-  - Avoid invalid inputs (e.g., division by 0, NULL pointer dereference)
-  - Wrap all test cases inside a proper main() function
-  - Use readable variable names and comments
+  - Use assert-style tests only (e.g., <cassert>)
+  - Do **not** use any input/output (cin, cout, etc.)
+  - Include only valid function calls with correct parameter types
+  - Include necessary headers (e.g., <cassert> and "sample.hpp")
+  - Do NOT define or declare any functions in the test file
+  - Assume the tested functions are already implemented in sample.cpp/.hpp
+  - Wrap test cases inside a single global `int main()` function
+  - Do NOT use strings or char arrays unless specified in the function definition
+  - Use readable variable names and inline comments
+  - Do NOT include explanations or anything other than compilable C++ test code
+  - Do NOT define any function already declared in sample.hpp (e.g., add, subtract)
 
 formatting:
   - Use consistent indentation (4 spaces)
@@ -17,8 +19,8 @@ formatting:
   - Comment each test with what it’s testing
 
 output:
-  - Provide only the test code, no explanation
-  - Wrap all code in a single `main()` function if assert.h is used
-  - Return valid compilable code only
+  - Provide only the test code, no explanation or markdown formatting
+  - Do not include triple backticks (```)
+  - Ensure the test compiles successfully
 
-language: "C"
+language: "C++"
