@@ -5,21 +5,21 @@ import yaml
 from typing import Tuple
 from ollama_client import generate_tests_ollama
 
-INPUT_FILE = "input/sample.c"
-TEST_FILE = "input/test_sample.c"
+INPUT_FILE = "input/sample.cpp"
+TEST_FILE = "input/test_sample.cpp"
 BINARY_PATH = "input/test_binary"
 SOURCE_DIR = "input"
 PROMPT_YAML = "prompts/test_prompt.yaml"
 
-BUILD_CMD = f"gcc -Wall -fprofile-arcs -ftest-coverage -o {BINARY_PATH} input/sample.c input/test_sample.c"
+BUILD_CMD = f"g++ -Wall -fprofile-arcs -ftest-coverage -o {BINARY_PATH} input/sample.cpp input/test_sample.cpp"
 
 def clean_coverage_files():
-    print("🧹 Cleaning old coverage files...")
+    print("\U0001f9f9 Cleaning old coverage files...")
     for pattern in ["input/*.gcda", "input/*.gcno", "input/*.gcov"]:
         for file in glob.glob(pattern):
             try:
                 os.remove(file)
-                print(f"🗑️  Deleted: {file}")
+                print(f"\U0001f5d1️  Deleted: {file}")
             except Exception as e:
                 print(f"⚠️  Could not delete {file}: {e}")
 
@@ -68,17 +68,17 @@ def build_prompt_from_yaml(yaml_path: str) -> str:
     return "\n".join(parts)
 
 def run_coverage():
-    print("📊 Running gcov for coverage...")
+    print("\U0001f4ca Running gcov for coverage...")
 
-    # Run gcov (will generate sample.c.gcov in current working directory)
-    result = subprocess.run("gcov input/sample.c -o input", shell=True, capture_output=True, text=True)
+    cpp_file = "sample.cpp"
+    gcov_file = cpp_file + ".gcov"
+
+    result = subprocess.run(f"gcov input/{cpp_file}", shell=True, capture_output=True, text=True)
     print(result.stdout)
     print(result.stderr)
 
-    gcov_file = os.path.join(os.getcwd(), "sample.c.gcov")  # use absolute path
-
     if not os.path.exists(gcov_file):
-        print("❌ No .gcov file generated.")
+        print(f"❌ Coverage file {gcov_file} not found.")
         return
 
     executed = 0
@@ -102,31 +102,38 @@ def run_coverage():
     else:
         print("⚠️ No executable lines found.")
 
-
 def main():
+    print("\n🔍 Files in 'input/' after compilation:")
+    for f in os.listdir(SOURCE_DIR):
+        print(" -", f)
+
     clean_coverage_files()
 
     with open(INPUT_FILE, "r") as f:
         code = f.read()
 
     prompt = build_prompt_from_yaml(PROMPT_YAML)
-    print("🧠 Generating unit tests...")
+    print("\U0001f9e0 Generating unit tests...")
+    print("Prompt:\n", prompt)
+
     test_code = generate_tests_ollama(code, prompt)
 
-    if "Timeout" in test_code or not test_code.strip():
-        print("❌ Timeout: Model took too long to respond.")
-        print("⚠️  Skipping test generation to avoid overwriting existing test_sample.c.")
+    if "```" in test_code:
+        test_code = test_code.split("```")[-1]
+
+    if "int main()" not in test_code or not test_code.strip().startswith("#include"):
+        print("❌ Generated code does not contain valid C++ test code. Aborting.")
         return
 
     save_test_code(test_code)
 
     print("⚙️  Compiling tests...")
     success, logs = compile_tests()
+    print("📦 Compiler output:\n", logs)
 
     if not success:
         print("❌ Build failed. Retrying with LLM using logs...")
-        logs = logs[-1000:]
-        retry_prompt = f"""The following C unit test code failed to compile. Please correct it.
+        retry_prompt = f"""The following C++ test code failed to compile. Please correct it.
 
 ### Original Code
 {code}
@@ -135,11 +142,16 @@ def main():
 {test_code}
 
 ### Compiler Logs
-{logs}
+{logs[-1000:]}
 
-Return corrected C unit tests using assert.h wrapped in int main(). No explanation.
+Return corrected C++ test code only, no explanations.
 """
         fixed_test_code = generate_tests_ollama(code, retry_prompt)
+        if "```" in fixed_test_code:
+            fixed_test_code = fixed_test_code.split("```")[-1]
+        if "int main()" not in fixed_test_code or not fixed_test_code.strip().startswith("#include"):
+            print("❌ LLM retry failed to produce valid C++ code. Aborting.")
+            return
         save_test_code(fixed_test_code)
 
         print("🔁 Re-compiling fixed test...")
@@ -165,10 +177,8 @@ Return corrected C unit tests using assert.h wrapped in int main(). No explanati
     for f in os.listdir(SOURCE_DIR):
         print(" -", f)
 
-    print("🧮 Now running line coverage check using gcov...")
+    print("\U0001f9ae Now running line coverage check using gcov...")
     run_coverage()
 
 if __name__ == "__main__":
-    print("\n🔍 Files in 'input/' after compilation:")
-    for f in os.listdir("input"):
-        print(" -", f)
+    main()
