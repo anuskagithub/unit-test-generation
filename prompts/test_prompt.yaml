@@ -1,17 +1,10 @@
 task: "Generate C++ unit tests"
 
 requirements:
-  - Use assert-style tests only (e.g., <cassert>)
-  - Do **not** use any input/output (cin, cout, etc.)
-  - Include only valid function calls with correct parameter types
-  - Include necessary headers (e.g., <cassert> and "sample.hpp")
-  - Do NOT define or declare any functions in the test file
-  - Assume the tested functions are already implemented in sample.cpp/.hpp
-  - Wrap test cases inside a single global `int main()` function
-  - Do NOT use strings or char arrays unless specified in the function definition
-  - Use readable variable names and inline comments
-  - Do NOT include explanations or anything other than compilable C++ test code
-  - Do NOT define any function already declared in sample.hpp (e.g., add, subtract)
+  - Use only assert-style tests inside a global int main() function
+  - Do not use any function that is not declared in sample.hpp
+  - Include <cassert> and "sample.hpp" headers
+  - Do not define any functions like add() or subtract()
 
 formatting:
   - Use consistent indentation (4 spaces)
